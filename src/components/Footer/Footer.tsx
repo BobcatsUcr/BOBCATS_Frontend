@@ -91,8 +91,8 @@ const Footer = () => {
         <Image
           src="https://bobcats-backend.onrender.com/Logo_Blanco_Transparente.png"
           alt="Logo Blanco"
-          width={40}
-          height={40}
+          width={80}
+          height={80}
           className="h-auto w-auto"
         />
       </div>
