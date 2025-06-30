@@ -89,10 +89,10 @@ const Footer = () => {
           <Twitter className="w-8 h-8 text-white hover:text-green-200 cursor-pointer" />
         </div>
         <Image
-          src="https://bobcats-backend.onrender.com/Logo_Blanco_Transparente.png"
+          src="/Logo_Blanco_Transparente.png"
           alt="Logo Blanco"
-          width={70}
-          height={70}
+          width={80}
+          height={80}
           className="h-auto w-auto"
         />
       </div>
