@@ -108,19 +108,7 @@ type CartItem = {
   quantity: number;
 };
 
-type CheckoutFields = {
-  nombre: string;
-  apellidos: string;
-  direccion: string;
-  telefono: string;
-  provincia: string;
-  canton: string;
-  cardNumber: string;
-  expiryDate: string;
-  cvv: string;
-  titular: string;
-  cartItems: CartItem[];
-};
+
 
 export default function CheckoutPage() {
   const [provincia, setProvincia] = useState("San José");
@@ -138,7 +126,7 @@ export default function CheckoutPage() {
   const [expiryDate, setExpiryDate] = useState("");
   const [cvv, setCvv] = useState("");
   const [titular, setTitular] = useState("");
-  const [errores, setErrores] = useState<string[]>([]);
+  const [errores] = useState<string[]>([]);
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const { validate } = useCheckoutValidation();
   const [showToast, setShowToast] = useState(false);
