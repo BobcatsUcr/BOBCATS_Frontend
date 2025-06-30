@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export default function NotFound() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-[#36492C] text-white px-4 text-center">
@@ -13,12 +15,12 @@ export default function NotFound() {
         Parece que te saliste del camino. Intenta regresar al inicio o explorar
         otra ruta.
       </p>
-      <a
+      <Link
         href="/"
         className="px-6 py-2 bg-[#507D38] text-white rounded hover:bg-[#40642c] transition"
       >
         Volver al campamento base
-      </a>
+      </Link>
     </div>
   );
 }

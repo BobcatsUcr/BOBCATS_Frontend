@@ -2,6 +2,7 @@
 import { X, Trash } from "lucide-react";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { getCurrentUser } from "@/utils/auth";
 import { getUserFavorites, updateUserFavorites } from "@/utils/favorites";
 
@@ -20,7 +21,7 @@ export default function FavoriteDrawer({
   onClose: () => void;
 }) {
   const [favoriteItems, setFavoriteItems] = useState<FavoriteItem[]>([]);
-  const [user, setUser] = useState<any | null>(null);
+  const [user, setUser] = useState<{ username: string } | null>(null);
 
   useEffect(() => {
     const currentUser = getCurrentUser();
@@ -88,11 +89,15 @@ export default function FavoriteDrawer({
                     className="flex gap-4 w-full pr-10"
                   >
                     {/* Imagen */}
-                    <img
-                      src={item.imageUrl}
-                      alt={item.name}
-                      className="w-24 h-24 object-contain rounded"
-                    />
+                    <div className="relative w-24 h-24">
+                      <Image
+                        src={item.imageUrl}
+                        alt={item.name}
+                        fill
+                        className="object-contain rounded"
+                        sizes="96px"
+                      />
+                    </div>
 
                     {/* Info del producto */}
                     <div className="flex-1">

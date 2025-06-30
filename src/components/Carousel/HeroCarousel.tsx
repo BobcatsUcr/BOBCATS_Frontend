@@ -3,10 +3,10 @@
 
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
 
-// Component for displaying a carousel of images with titles and locations.
 const slides = [
   {
     image: "https://bobcats-backend.onrender.com/Carousel/carousel-1.png",
@@ -26,7 +26,7 @@ const slides = [
 ];
 
 export default function HeroCarousel() {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [, setCurrentSlide] = useState(0); // No usamos currentSlide directamente
   const [sliderRef, instanceRef] = useKeenSlider({
     loop: true,
     slides: {
@@ -46,12 +46,13 @@ export default function HeroCarousel() {
     if (instanceRef.current) instanceRef.current.prev();
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const interval = setInterval(() => {
       if (instanceRef.current) {
         instanceRef.current.next();
       }
-    }, 5000); // 5 segundos
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);
@@ -64,11 +65,16 @@ export default function HeroCarousel() {
             key={index}
             className="keen-slider__slide relative flex items-center justify-center"
           >
-            <img
-              src={slide.image}
-              alt={slide.title}
-              className="absolute w-full h-full object-cover"
-            />
+            <div className="absolute inset-0">
+              <Image
+                src={slide.image}
+                alt={slide.title}
+                fill
+                className="object-cover"
+                sizes="100vw"
+              />
+              <div className="absolute inset-0 bg-black/40" />
+            </div>
             <div className="relative z-10 text-white text-center px-6">
               <h2 className="text-4xl md:text-6xl font-extrabold tracking-widest">
                 {slide.title}
@@ -77,7 +83,6 @@ export default function HeroCarousel() {
                 {slide.location}
               </p>
             </div>
-            <div className="absolute inset-0 bg-black/40" />
           </div>
         ))}
       </div>

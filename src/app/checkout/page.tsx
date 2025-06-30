@@ -108,8 +108,6 @@ type CartItem = {
   quantity: number;
 };
 
-
-
 export default function CheckoutPage() {
   const [provincia, setProvincia] = useState("San José");
   const [canton, setCanton] = useState("");
@@ -146,11 +144,17 @@ export default function CheckoutPage() {
 
     const loadCart = () => {
       const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-      const cleanedCart = cart.map((item: any) => ({
-        ...item,
-        price: Number(item.price),
-        quantity: Number(item.quantity || 1),
-      }));
+      const cleanedCart = cart.map(
+        (item: Partial<CartItem>): CartItem => ({
+          id: item.id ?? 0,
+          name: item.name ?? "",
+          price: Number(item.price),
+          imageUrl: item.imageUrl ?? "",
+          quantity: Number(item.quantity ?? 1),
+          selectedColor: item.selectedColor,
+          selectedSize: item.selectedSize,
+        })
+      );
       setCartItems(cleanedCart);
     };
 
@@ -241,7 +245,10 @@ export default function CheckoutPage() {
             purchaseId: "P-" + Date.now(),
             date: new Date().toISOString(),
             items: cartItems,
-            total: cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0),
+            total: cartItems.reduce(
+              (sum, item) => sum + item.price * item.quantity,
+              0
+            ),
           });
         }
 
@@ -269,7 +276,7 @@ export default function CheckoutPage() {
     window.dispatchEvent(new Event("cartUpdated"));
   }
   // Validación de campos al perder el foco
-  const validateField = (field: string, value: string) => {
+  const validateField = (field: string, _value: string) => {
     const errors = validate({
       nombre,
       apellidos,

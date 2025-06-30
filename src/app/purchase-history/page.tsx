@@ -35,6 +35,7 @@ export default function PurchaseHistoryPage() {
         const data = await getUserPurchaseHistory(user.username);
         setPurchases(data);
       } catch (e) {
+        console.error("Error al obtener el historial de compras:", e);
         setError("Error al cargar el historial");
       } finally {
         setLoading(false);
@@ -50,12 +51,27 @@ export default function PurchaseHistoryPage() {
 
   return (
     <div style={{ padding: "1rem" }}>
-      <h1 className="text-2xl font-bold mb-6 text-center">Historial de Compras</h1>
+      <h1 className="text-2xl font-bold mb-6 text-center">
+        Historial de Compras
+      </h1>
       {purchases.map((purchase) => (
-        <div key={purchase.purchaseId} style={{ border: "1px solid #ccc", padding: "1rem", marginBottom: "1rem" }}>
-          <p><strong>ID Compra:</strong> {purchase.purchaseId}</p>
-          <p><strong>Fecha:</strong> {new Date(purchase.date).toLocaleString()}</p>
-          <p><strong>Total:</strong> ₡{purchase.total.toLocaleString()}</p>
+        <div
+          key={purchase.purchaseId}
+          style={{
+            border: "1px solid #ccc",
+            padding: "1rem",
+            marginBottom: "1rem",
+          }}
+        >
+          <p>
+            <strong>ID Compra:</strong> {purchase.purchaseId}
+          </p>
+          <p>
+            <strong>Fecha:</strong> {new Date(purchase.date).toLocaleString()}
+          </p>
+          <p>
+            <strong>Total:</strong> ₡{purchase.total.toLocaleString()}
+          </p>
           <h4>Productos:</h4>
           <ul>
             {purchase.items.map((item, idx) => (

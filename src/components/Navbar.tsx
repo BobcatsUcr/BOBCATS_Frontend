@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, X, Search, ShoppingCart, User, Heart } from "lucide-react";
+import Image from "next/image"; // ✅ Importación añadida para reemplazar <img>
+import { Menu, X, Search, ShoppingCart, Heart } from "lucide-react"; 
 import { useState, useEffect } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import CartDrawer from "./CartDrawer";
 import SearchDrawer from "./SearchDrawer";
 import UserMenu from "./UserMenu";
@@ -20,7 +21,6 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const toggleMenu = () => setMenuOpen(!menuOpen);
-  const pathname = usePathname();
   const searchParams = useSearchParams();
   const selectedCategory = searchParams.get("category");
   const [searchOpen, setSearchOpen] = useState(false);
@@ -92,6 +92,7 @@ export default function Navbar() {
   const handleFavoriteClick = () => {
     setFavoriteDrawerOpen(!favoriteDrawerOpen);
   };
+
   return (
     <>
       <header className="w-full bg-white text-gray-800 border-b-[6px] border-[#507D3B] px-6 py-3 shadow-md z-40 relative">
@@ -99,9 +100,11 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex items-center gap-2">
             <Link href="/" className="flex items-center gap-2">
-              <img
+              <Image
                 src="https://bobcats-backend.onrender.com/Logo_Verde_Trasparente.png"
                 alt="Logo"
+                width={64}
+                height={64}
                 className="w-16 lg:w-17 h-auto object-contain"
               />
             </Link>
