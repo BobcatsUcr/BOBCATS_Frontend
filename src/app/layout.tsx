@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "../components/Footer/Footer";
 import CookieBanner from "@/components/CookieBanner"; // 👈 Agregado
 import { Outfit } from "next/font/google";
+import { Suspense } from "react";
 
 // Font styles
 const outfit = Outfit({
@@ -25,7 +26,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={outfit.variable}>
       <body className="antialiased min-h-screen flex flex-col">
-        <Navbar />
+        <Suspense fallback={<div></div>}>
+          <Navbar />
+        </Suspense>
         <main className="flex-grow">{children}</main>
         <Footer />
         <CookieBanner />
