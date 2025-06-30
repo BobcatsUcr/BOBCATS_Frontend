@@ -1,37 +1,32 @@
-"use client";
+'use client'
 
-import { useState } from "react";
-import { Instagram, Twitter, Music2, Minus, Plus } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import AccordionContent from "./AccordionContent";
+import { useState } from "react"
+import { Instagram, Twitter, Music2, Minus, Plus } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link" 
+import AccordionContent from "./AccordionContent"
 
 // Footer component for the website.
 const Footer = () => {
-  const [openSection, setOpenSection] = useState<string | null>(null);
+  const [openSection, setOpenSection] = useState<string | null>(null)
 
   const toggleSection = (section: string) => {
-    setOpenSection(openSection === section ? null : section);
-  };
+    setOpenSection(openSection === section ? null : section)
+  }
 
   return (
     <footer className="bg-[#4C6B37] text-white py-10 px-6 md:px-16 flex flex-col md:flex-row justify-between flex-wrap gap-8">
+      
       {/* CONTACTO */}
       <div className="min-w-[200px]">
         <h4 className="font-bold mb-3 text-2xl">CONTACTO</h4>
         <p>
-          <a
-            href="mailto:BOBCATS@bobcats.com"
-            className="text-[#ffffff] hover:underline text-xl"
-          >
+          <a href="mailto:BOBCATS@bobcats.com" className="text-[#ffffff] hover:underline text-xl">
             BOBCATS@bobcats.com
           </a>
         </p>
         <p>
-          <a
-            href="tel:+50612345678"
-            className="text-[#ffffff] hover:underline text-xl"
-          >
+          <a href="tel:+50612345678" className="text-[#ffffff] hover:underline text-xl">
             (+506) 1234-5678
           </a>
         </p>
@@ -41,14 +36,14 @@ const Footer = () => {
       <div className="min-w-[200px] border-t md:border-none pt-4 md:pt-0">
         <div
           className="flex justify-between items-center md:block cursor-pointer md:cursor-default"
-          onClick={() => toggleSection("AYUDA")}
+          onClick={() => toggleSection('AYUDA')}
         >
           <h4 className="font-bold mb-3 text-2xl">AYUDA</h4>
           <span className="md:hidden">
-            {openSection === "AYUDA" ? <Minus /> : <Plus />}
+            {openSection === 'AYUDA' ? <Minus /> : <Plus />}
           </span>
         </div>
-        <AccordionContent isOpen={openSection === "AYUDA"}>
+        <AccordionContent isOpen={openSection === 'AYUDA'}>
           <ul className="flex flex-col gap-2">
             <li className="text-xl">
               <Link href="/privacy-policy" className="hover:underline">
@@ -68,14 +63,14 @@ const Footer = () => {
       <div className="min-w-[200px] border-t md:border-none pt-4 md:pt-0">
         <div
           className="flex justify-between items-center md:block cursor-pointer md:cursor-default"
-          onClick={() => toggleSection("NOSOTROS")}
+          onClick={() => toggleSection('NOSOTROS')}
         >
           <h4 className="font-bold mb-3 text-2xl">NOSOTROS</h4>
           <span className="md:hidden">
-            {openSection === "NOSOTROS" ? <Minus /> : <Plus />}
+            {openSection === 'NOSOTROS' ? <Minus /> : <Plus />}
           </span>
         </div>
-        <AccordionContent isOpen={openSection === "NOSOTROS"}>
+        <AccordionContent isOpen={openSection === 'NOSOTROS'}>
           <ul className="flex flex-col gap-2">
             <li className="text-xl">
               <Link href="/about-us" className="hover:underline">
@@ -94,7 +89,7 @@ const Footer = () => {
           <Twitter className="w-8 h-8 text-white hover:text-green-200 cursor-pointer" />
         </div>
         <Image
-          src="https://bobcats-backend.onrender.com/Logo_Blanco_Transparente.png"
+          src="http://localhost:3001/Logo_Blanco_Transparente.png"
           alt="Logo Blanco"
           width={80}
           height={80}
@@ -102,7 +97,7 @@ const Footer = () => {
         />
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer
