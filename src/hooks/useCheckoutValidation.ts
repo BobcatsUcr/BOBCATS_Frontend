@@ -1,5 +1,16 @@
 // hooks/useCheckoutValidation.ts
 
+// ✅ Añadí esta definición arriba del archivo:
+type CartItem = {
+  id: number;
+  name: string;
+  price: number;
+  imageUrl: string;
+  selectedColor?: string;
+  selectedSize?: string;
+  quantity: number;
+};
+
 type CheckoutFields = {
   nombre: string;
   apellidos: string;
@@ -11,8 +22,9 @@ type CheckoutFields = {
   expiryDate: string;
   cvv: string;
   titular: string;
-  cartItems: any[];
+  cartItems: CartItem[]; 
 };
+
 // Provincia y cantón
 const provinciasYCantones: { [key: string]: string[] } = {
   "San José": [

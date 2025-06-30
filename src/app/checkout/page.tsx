@@ -276,7 +276,7 @@ export default function CheckoutPage() {
     window.dispatchEvent(new Event("cartUpdated"));
   }
   // Validación de campos al perder el foco
-  const validateField = (field: string, _value: string) => {
+  const validateField = (field: string, value: string) => {
     const errors = validate({
       nombre,
       apellidos,
@@ -291,6 +291,10 @@ export default function CheckoutPage() {
       cartItems,
     });
     setFieldErrors((prev) => ({ ...prev, [field]: errors[field] || "" }));
+    if(!value){
+      console.error("No hay value:", value);
+    }
+    
   };
   if (!loading) return;
 

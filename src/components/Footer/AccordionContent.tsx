@@ -8,12 +8,6 @@ interface AccordionProps {
 const AccordionContent = ({ isOpen, children }: AccordionProps) => {
   const ref = useRef<HTMLUListElement>(null);
 
-  useEffect(() => {
-    if (ref.current) {
-      // Si querés usar scrollHeight para animaciones dinámicas más adelante, podrías mantenerlo
-      const _ = ref.current.scrollHeight; // Esto evitaría el warning si planeás usarlo luego
-    }
-  }, [children]);
 
   return (
     <ul

@@ -8,7 +8,6 @@ import {
   User,
   Settings,
   LogOut,
-  ChevronDown,
   ReceiptText
 } from "lucide-react";
 import { getCurrentUser } from "@/utils/auth";
