@@ -66,7 +66,7 @@ export default function FavoriteDrawer({
         <div className="flex justify-between items-center p-4 border-b">
           <h2 className="text-lg font-semibold">Tus favoritos</h2>
           <button onClick={onClose}>
-            <X className="w-6 h-6" />
+            <X className="w-6 h-6 cursor-pointer" />
           </button>
         </div>
 
@@ -118,7 +118,7 @@ export default function FavoriteDrawer({
                     onClick={() => handleRemoveFavorite(index)}
                     className="absolute top-0 right-0 p-2 text-gray-400 hover:text-red-500"
                   >
-                    <Trash className="w-4 h-4" />
+                    <Trash className="w-4 h-4 cursor-pointer" />
                   </button>
                 </li>
               ))}

@@ -139,14 +139,14 @@ export default function CartDrawer({
                     </p>
                     <div className="flex items-center gap-3 mt-2">
                       <button
-                        className="w-6 h-6 text-center border rounded"
+                        className="w-6 h-6 text-center border rounded cursor-pointer"
                         onClick={() => handleDecreaseQuantity(index)}
                       >
                         −
                       </button>
                       <span>{item.quantity}</span>
                       <button
-                        className="w-6 h-6 text-center border rounded"
+                        className="w-6 h-6 text-center border rounded cursor-pointer"
                         onClick={() => handleIncreaseQuantity(index)}
                       >
                         +
@@ -157,7 +157,7 @@ export default function CartDrawer({
                     onClick={() => handleRemoveItem(index)}
                     className="absolute top-1/2 right-2 -translate-y-1/2 p-2 text-gray-400 hover:text-red-500"
                   >
-                    <Trash className="w-4 h-4" />
+                    <Trash className="w-4 h-4 cursor-pointer" />
                   </button>
                 </li>
               ))}
@@ -179,7 +179,7 @@ export default function CartDrawer({
             <Link href={cartItems.length > 0 ? "/checkout" : "#"}>
               <button
                 disabled={cartItems.length === 0}
-                className={`w-full font-bold py-2 rounded transition-colors ${
+                className={`w-full font-bold py-2 rounded cursor-pointer transition-colors ${
                   cartItems.length > 0
                     ? "bg-[#507D3B] text-white hover:bg-[#406b31]"
                     : "bg-gray-300 text-gray-600 cursor-not-allowed"

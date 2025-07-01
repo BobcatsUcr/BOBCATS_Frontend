@@ -292,7 +292,7 @@ export default function CheckoutPage() {
     });
     setFieldErrors((prev) => ({ ...prev, [field]: errors[field] || "" }));
     if(!value){
-      console.error("No hay value:", value);
+      console.log("No hay value:", value);
     }
     
   };
@@ -544,7 +544,7 @@ export default function CheckoutPage() {
 
           <button
             onClick={handleSubmit}
-            className="bg-black text-white w-full py-3 rounded font-semibold mt-6"
+            className="bg-black text-white w-full py-3 rounded font-semibold mt-6 cursor-pointer"
           >
             Pagar ahora
           </button>

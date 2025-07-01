@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ['bobcats-backend.onrender.com'],
+    domains: ['bobcats-backend.onrender.com','res.cloudinary.com'],
     remotePatterns: [
       {
         protocol: 'http',

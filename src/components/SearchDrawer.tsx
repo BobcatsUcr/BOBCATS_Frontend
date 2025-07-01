@@ -69,7 +69,7 @@ export default function SearchDrawer({ isOpen, onClose }: SearchDrawerProps) {
           />
           <button
             onClick={onClose}
-            className="text-gray-600 hover:text-gray-800"
+            className="text-gray-600 hover:text-gray-800 cursor-pointer"
           >
             ✖
           </button>

@@ -90,13 +90,13 @@ export default function HeroCarousel() {
       {/* Arrows */}
       <button
         onClick={prev}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 p-2 bg-black/40 hover:bg-black/60 text-white rounded-full"
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 p-2 bg-black/40 hover:bg-black/60 text-white rounded-full cursor-pointer"
       >
         <ChevronLeft className="w-6 h-6" />
       </button>
       <button
         onClick={next}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 p-2 bg-black/40 hover:bg-black/60 text-white rounded-full"
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 p-2 bg-black/40 hover:bg-black/60 text-white rounded-full cursor-pointer"
       >
         <ChevronRight className="w-6 h-6" />
       </button>
