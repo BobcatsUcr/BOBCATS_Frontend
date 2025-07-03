@@ -208,6 +208,7 @@ export default function CheckoutPage() {
       titular,
       cartItems,
     });
+
     if (Object.keys(errores).length > 0) {
       setFieldErrors(errores);
       setToastType("error");
@@ -216,6 +217,8 @@ export default function CheckoutPage() {
       setTimeout(() => setShowToast(false), 3000);
       return;
     }
+
+    setLoading(true); // 👉 MOSTRAR PANTALLA DE CARGA
 
     try {
       const res = await fetch("https://bobcats-api.onrender.com/api/payment", {
@@ -227,7 +230,7 @@ export default function CheckoutPage() {
           cardNumber,
           expiryDate,
           cvc: cvv,
-          currency: "CRC", // o podés permitir que el usuario elija
+          currency: "CRC",
         }),
       });
 
@@ -238,17 +241,13 @@ export default function CheckoutPage() {
         setToastMessage("¡Pago aprobado correctamente!");
         setShowToast(true);
 
-        // NUEVO: agregar al historial
         const user = getCurrentUser();
         if (user) {
           await addUserPurchase({
             purchaseId: "P-" + Date.now(),
             date: new Date().toISOString(),
             items: cartItems,
-            total: cartItems.reduce(
-              (sum, item) => sum + item.price * item.quantity,
-              0
-            ),
+            total: total,
           });
         }
 
@@ -266,8 +265,11 @@ export default function CheckoutPage() {
       setToastType("error");
       setToastMessage("No se pudo conectar con la pasarela de pagos.");
       setShowToast(true);
+    } finally {
+      setLoading(false); // 👉 OCULTAR PANTALLA DE CARGA
     }
   };
+
   function clearCart() {
     const updatedCart: CartItem[] = [];
     setCartItems(updatedCart);
@@ -291,12 +293,20 @@ export default function CheckoutPage() {
       cartItems,
     });
     setFieldErrors((prev) => ({ ...prev, [field]: errors[field] || "" }));
-    if(!value){
+    if (!value) {
       console.log("No hay value:", value);
     }
-    
   };
   if (!loading) return;
+  if (loading) {
+  return (
+    <div className="fixed inset-0 bg-white bg-opacity-80 z-50 flex flex-col items-center justify-center">
+      <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-black"></div>
+      <p className="mt-4 text-lg font-semibold text-gray-700">Procesando pago...</p>
+    </div>
+  );
+}
+
 
   return (
     <div className="bg-gray-100 min-h-screen py-10 px-4">
