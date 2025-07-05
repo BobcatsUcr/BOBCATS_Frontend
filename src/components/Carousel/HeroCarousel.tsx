@@ -9,17 +9,20 @@ import Image from "next/image";
 
 const slides = [
   {
-    image: "https://bobcats-backend.onrender.com/Carousel/carousel-1.png",
+    image:
+      "https://bobcatsgroup-bmcgynevf2e8afa0.canadacentral-01.azurewebsites.net/Carousel/carousel-1.png",
     title: "AVENTURA AL AIRE LIBRE",
     location: "COSTA RICA",
   },
   {
-    image: "https://bobcats-backend.onrender.com/Carousel/carousel-2.png",
+    image:
+      "https://bobcatsgroup-bmcgynevf2e8afa0.canadacentral-01.azurewebsites.net/Carousel/carousel-2.png",
     title: "EXPLORACIÓN EN RÍO",
     location: "AGUAS TROPICALES",
   },
   {
-    image: "https://bobcats-backend.onrender.com/Carousel/carousel-3.png",
+    image:
+      "https://bobcatsgroup-bmcgynevf2e8afa0.canadacentral-01.azurewebsites.net/Carousel/carousel-3.png",
     title: "SENDEROS DE MONTAÑA",
     location: "RUTAS ESCÉNICAS",
   },

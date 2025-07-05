@@ -24,7 +24,7 @@ export default function ProductosPage() {
     const fetchProducts = async () => {
       try {
         const res = await fetch(
-          "https://bobcats-backend.onrender.com/api/products"
+          "https://bobcatsgroup-bmcgynevf2e8afa0.canadacentral-01.azurewebsites.net/api/products"
         );
         const data: Product[] = await res.json();
 
