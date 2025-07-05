@@ -14,7 +14,7 @@ export async function updateUserCart(cart: any[]) {
 
   username = user.username;
   const res = await fetch(
-    "https://bobcatsgroup-bmcgynevf2e8afa0.canadacentral-01.azurewebsites.net/api/cart/update-cart",
+    "https://bobcats-backend.onrender.com/api/cart/update-cart",
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -31,7 +31,7 @@ export async function updateUserCart(cart: any[]) {
  */
 export async function getUserCart(username: string) {
   const res = await fetch(
-    `https://bobcatsgroup-bmcgynevf2e8afa0.canadacentral-01.azurewebsites.net/api/cart/get-cart?username=${encodeURIComponent(
+    `https://bobcats-backend.onrender.com/api/cart/get-cart?username=${encodeURIComponent(
       username
     )}`
   );

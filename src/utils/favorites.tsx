@@ -11,7 +11,7 @@ export async function updateUserFavorites(favorites: any[]) {
   if (!user) return;
 
   const res = await fetch(
-    "https://bobcatsgroup-bmcgynevf2e8afa0.canadacentral-01.azurewebsites.net/api/favorite/update-favorites",
+    "https://bobcats-backend.onrender.com/api/favorite/update-favorites",
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -32,7 +32,7 @@ export async function updateUserFavorites(favorites: any[]) {
  */
 export async function getUserFavorites(username: string) {
   const res = await fetch(
-    `https://bobcatsgroup-bmcgynevf2e8afa0.canadacentral-01.azurewebsites.net/api/favorite/get-favorites?username=${encodeURIComponent(
+    `https://bobcats-backend.onrender.com/api/favorite/get-favorites?username=${encodeURIComponent(
       username
     )}`
   );

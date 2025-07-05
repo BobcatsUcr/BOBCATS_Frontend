@@ -101,7 +101,7 @@ export default function Navbar() {
           <div className="flex items-center gap-2">
             <Link href="/" className="flex items-center gap-2">
               <Image
-                src="https://bobcatsgroup-bmcgynevf2e8afa0.canadacentral-01.azurewebsites.net/Logo_Verde_Trasparente.png"
+                src="https://bobcats-backend.onrender.com/Logo_Verde_Trasparente.png"
                 alt="Logo"
                 width={64}
                 height={64}

@@ -21,7 +21,7 @@ export default function Home() {
             <div className="rounded-lg shadow-lg p-6 text-center h-90 flex flex-col transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border hover:border-gray-200">
               <div className="relative w-60 h-60 mb-4 mx-auto">
                 <Image
-                  src="https://bobcatsgroup-bmcgynevf2e8afa0.canadacentral-01.azurewebsites.net/Carousel/Equipment.png"
+                  src="https://bobcats-backend.onrender.com/Carousel/Equipment.png"
                   alt="Aventura"
                   fill
                   quality={100}
@@ -39,7 +39,7 @@ export default function Home() {
             <div className="rounded-lg shadow-lg p-6 text-center h-90 flex flex-col transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border hover:border-gray-200">
               <div className="relative w-60 h-60 mb-4 mx-auto">
                 <Image
-                  src="https://bobcatsgroup-bmcgynevf2e8afa0.canadacentral-01.azurewebsites.net/Carousel/Camping.png"
+                  src="https://bobcats-backend.onrender.com/Carousel/Camping.png"
                   alt="Calidad"
                   fill
                   quality={100}
@@ -56,7 +56,7 @@ export default function Home() {
             <div className="rounded-lg shadow-lg p-6 text-center h-90 flex flex-col transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border hover:border-gray-200">
               <div className="relative w-60 h-60 mb-4 mx-auto">
                 <Image
-                  src="https://bobcatsgroup-bmcgynevf2e8afa0.canadacentral-01.azurewebsites.net/Carousel/Walk.png"
+                  src="https://bobcats-backend.onrender.com/Carousel/Walk.png"
                   alt="Soporte"
                   fill
                   quality={100}

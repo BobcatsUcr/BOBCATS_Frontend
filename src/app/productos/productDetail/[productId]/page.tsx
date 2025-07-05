@@ -93,7 +93,7 @@ export default function ProductDetail() {
       try {
         const id = Array.isArray(productId) ? productId[0] : productId;
         const res = await fetch(
-          "https://bobcatsgroup-bmcgynevf2e8afa0.canadacentral-01.azurewebsites.net/api/products"
+          "https://bobcats-backend.onrender.com/api/products"
         );
         const data: Product[] = await res.json();
 

@@ -26,9 +26,7 @@ export default function SearchDrawer({ isOpen, onClose }: SearchDrawerProps) {
   //  Cargar productos solo una vez al abrir
   useEffect(() => {
     if (isOpen && allProducts.length === 0) {
-      fetch(
-        "https://bobcatsgroup-bmcgynevf2e8afa0.canadacentral-01.azurewebsites.net/api/products"
-      )
+      fetch("https://bobcats-backend.onrender.com/api/products")
         .then((res) => res.json())
         .then((data) => setAllProducts(data))
         .catch((err) => console.error("Error al cargar productos:", err));

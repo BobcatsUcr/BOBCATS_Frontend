@@ -36,7 +36,7 @@ export default function RegisterPage() {
 
     if (Object.keys(newErrors).length === 0) {
       const res = await fetch(
-        "https://bobcatsgroup-bmcgynevf2e8afa0.canadacentral-01.azurewebsites.net/api/users/register",
+        "https://bobcats-backend.onrender.com/api/users/register",
         {
           method: "POST",
           headers: {

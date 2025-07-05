@@ -37,7 +37,7 @@ export default function LoginPage() {
     if (Object.keys(newErrors).length === 0) {
       try {
         const res = await fetch(
-          "https://bobcatsgroup-bmcgynevf2e8afa0.canadacentral-01.azurewebsites.net/api/users/login",
+          "https://bobcats-backend.onrender.com/api/users/login",
           {
             method: "POST",
             headers: {
